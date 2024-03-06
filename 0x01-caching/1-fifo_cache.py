@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""queue cache"""
+"""queue cache
+"""
 
 from base_caching import BaseCaching
 
