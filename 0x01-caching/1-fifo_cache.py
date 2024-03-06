@@ -27,7 +27,8 @@ class FIFOCache(BaseCaching):
             print("DISCARD: {}".format(self.__queue.pop(0)))
 
     def get(self, key):
-        """retrieve"""
+        """retrieve
+        """
         if key not in self.cache_data or key is None:
             return None
         return self.cache_data.get(key)
