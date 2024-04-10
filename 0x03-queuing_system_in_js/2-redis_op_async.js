@@ -23,7 +23,7 @@ async function displaySchoolValue(schoolName) {
 	const reply = await getAsync(schoolName);
     	console.log(reply);
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 }
 
