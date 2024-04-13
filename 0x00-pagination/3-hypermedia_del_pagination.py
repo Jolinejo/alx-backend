@@ -43,27 +43,27 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-            """eturn a dictionary with the following key-value pairs:
-            index: the current start index of the return page.
-            next_index: the next index to query with.
-            page_size: the current page size
-            data: the actual page of the dataset"""
-            indexed_data = self.indexed_dataset()
-            assert index >= 0
-            assert index < len(indexed_data)
+        """eturn a dictionary with the following key-value pairs:
+        index: the current start index of the return page.
+        next_index: the next index to query with.
+        page_size: the current page size
+        data: the actual page of the dataset"""
+        indexed_data = self.indexed_dataset()
+        assert index >= 0
+        assert index < len(indexed_data)
 
-            next_index = index
-            data = []
-            return_dict = {}
+        next_index = index
+        data = []
+        return_dict = {}
 
-            for i in range(page_size):
-                while not indexed_data.get(next_index):
-                    next_index += 1
-                data.append(indexed_data[next_index])
+        for i in range(page_size):
+            while not indexed_data.get(next_index):
                 next_index += 1
+            data.append(indexed_data[next_index])
+            next_index += 1
 
-            return_dict['index'] = index
-            return_dict['next_index'] = next_index
-            return_dict['page_size'] = len(data)
-            return_dict['data'] = data
-            return return_dict
+        return_dict['index'] = index
+        return_dict['next_index'] = next_index
+        return_dict['page_size'] = len(data)
+        return_dict['data'] = data
+        return return_dict
